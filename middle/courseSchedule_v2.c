@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 /**
  * numCourses 课程总数
  * prerequisites 课程前置关系
- * prerequisitesSize 前置课程规模
+ * prerequisitesSize 前置课程规模 后两个参数貌似没用到
  * prerequisitesColSize
  * returnSize 返回数组规模
   */
@@ -92,6 +92,7 @@ int *findOrder(int numCourses, int **prerequisites, int prerequisitesSize, int *
     /**
      * 记录图节点入度
      */
+    printf("节点入度记录~\n");
     for (i = 0; i < prerequisitesSize; ++i)
     {
         a[prerequisites[i][0]]++;
@@ -100,6 +101,7 @@ int *findOrder(int numCourses, int **prerequisites, int prerequisitesSize, int *
     /**
      * 入度为0的节点 即为 可 存放至任意位置的点 入度记录为-1 节点 为 不存在于输入 数组中的 虚节点
       */
+    printf("将入度为0的节点存放至返回数组中~\n");
     for (i = 0; i < numCourses; i++)
     {
         if (a[i] == 0)
@@ -111,6 +113,7 @@ int *findOrder(int numCourses, int **prerequisites, int prerequisitesSize, int *
     /** 
      * 处理入度非零节点
      */
+    printf("处理非零节点\n");
     for ( i = 0; i < numCourses; ++i)
     {
         for(j = 0; j < prerequisitesSize; ++j){
